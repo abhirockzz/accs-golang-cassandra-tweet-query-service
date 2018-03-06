@@ -1,0 +1,12 @@
+{
+  "instances": 1,
+  "memory": "2G",
+  "services": [
+    {
+      "type": "DHCS",
+      "name": "<instance name>",
+      "username": "<admin username>",
+      "password": "<admin password>"
+    }
+  ]
+}
