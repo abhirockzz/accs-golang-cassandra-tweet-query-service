@@ -39,7 +39,7 @@ var cqlSession = getCQLSession()
 
 func getCQLSession() *gocql.Session {
 	fmt.Println("getCQLSession called")
-	clusterconfig := gocql.NewCluster(getValForEnvVar("DHCS_NODE_LIST", "129.150.127.4"))
+	clusterconfig := gocql.NewCluster(getValForEnvVar("DHCS_NODE_LIST", "localhost"))
 	portStr := getValForEnvVar("DHCS_CLIENT_PORT", "9042")
 	port, _ := strconv.Atoi(portStr)
 	clusterconfig.Port = port
@@ -48,8 +48,8 @@ func getCQLSession() *gocql.Session {
 	clusterconfig.Timeout = 10 * time.Second
 	clusterconfig.Keyspace = getValForEnvVar("KEYSPACE", "tweetspace")
 	clusterconfig.Authenticator = gocql.PasswordAuthenticator{
-		Username: getValForEnvVar("DHCS_USER_NAME", "admin"),
-		Password: getValForEnvVar("DHCS_USER_PASSWORD", "Password@123"),
+		Username: getValForEnvVar("DHCS_USER_NAME", "kehsihba"),
+		Password: getValForEnvVar("DHCS_USER_PASSWORD", "s3cr3t"),
 	}
 	clusterconfig.DisableInitialHostLookup = true
 	_session, err := clusterconfig.CreateSession()
